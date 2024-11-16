@@ -22,10 +22,19 @@ def VideoTranscription():
             return
         
         video_id = video_ids[0]  # Using the first video ID for transcription
-
+        languages = [
+            "aa", "ab", "af", "am", "ar", "as", "ay", "az", "ba", "be", "bg", "bh", "bi", "bn", "bo", "br", "ca", "co", "cs", 
+            "cy", "da", "de", "dz", "el", "en", "eo", "es", "et", "eu", "fa", "fi", "fj", "fo", "fr", "fy", "ga", "gd", "gl", 
+            "gn", "gu", "ha", "hi", "he", "hr", "hu", "hy", "ia", "id", "ie", "ik", "in", "is", "it", "iu", "iw", "ja", "ji", 
+            "jw", "ka", "kk", "kl", "km", "kn", "ko", "ks", "ku", "ky", "la", "ln", "lo", "lt", "lv", "mg", "mi", "mk", "ml", 
+            "mn", "mo", "mr", "ms", "mt", "my", "na", "ne", "nl", "no", "oc", "om", "or", "pa", "pl", "ps", "pt", "qu", "rm", 
+            "rn", "ro", "ru", "rw", "sa", "sd", "sg", "sh", "si", "sk", "sl", "sm", "sn", "so", "sq", "sr", "ss", "st", "su", 
+            "sv", "sw", "ta", "te", "tg", "th", "ti", "tk", "tl", "tn", "to", "tr", "ts", "tt", "tw", "ug", "uk", "ur", "uz", 
+            "vi", "vo", "wo", "xh", "yi", "yo", "za", "zh", "zu"
+            ]
         # Get transcript
         try:
-            transcribe = YouTubeTranscriptApi.get_transcript(video_id=video_id, languages=['ar', 'en'])
+            transcribe = YouTubeTranscriptApi.get_transcript(video_id=video_id, languages=languages)
         except Exception as e:
             st.write(f"Error retrieving transcript: {e}")
             return
